@@ -1,12 +1,17 @@
 package com.kpelykh.docker.client.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
   * @author <a href="mailto:nicolas.deloof@gmail.com">Nicolas De Loof</a>
   */
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Port {
+
+    @JsonProperty("IP")
+    private String ip;
 
     @JsonProperty("PrivatePort")
     private long privatePort;
@@ -16,6 +21,14 @@ public class Port {
 
     @JsonProperty("Type")
     private String type;
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
     public long getPrivatePort() {
         return privatePort;
@@ -44,6 +57,7 @@ public class Port {
     @Override
     public String toString() {
         return "Port{" +
+                "IP=" + ip +
                 "privatePort=" + privatePort +
                 ", publicPort=" + publicPort +
                 ", type='" + type + '\'' +

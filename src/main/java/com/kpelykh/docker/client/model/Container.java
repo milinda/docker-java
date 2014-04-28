@@ -40,7 +40,7 @@ public class Container {
     */
 
     @JsonProperty("Ports")    
-    public Ports ports;
+    public Port[] ports;
 
     @JsonProperty("SizeRw")
     private int size;
@@ -71,11 +71,11 @@ public class Container {
         return status;
     }
 
-    public Ports getPorts() {
+    public Port[] getPorts() {
         return ports;
     }
 
-    public void setPorts(Ports ports) {
+    public void setPorts(Port[] ports) {
         this.ports = ports;
     }
 
